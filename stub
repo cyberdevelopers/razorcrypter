@@ -76,7 +76,7 @@ namespace %4%
     //download }
 
 
-           object % 5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
+           object %5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
 
             Assembly %6%;
 
